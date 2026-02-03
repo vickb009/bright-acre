@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #FFD700;     /* Gold = wealth (8 energy) */
+  --secondary: #FF9F1C;   /* Solar orange = growth */
+  --accent: #FF4D4D;     /* Action red */
+  --background: #FFF9F0; /* Warm rich white */
+  --background-soft: #FFFDF8; /* Lighter gold-white */
+  --text-dark: #222;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--background),
+    var(--background-soft)
+  );
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: var(--primary);
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

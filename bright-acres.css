@@ -1,0 +1,23 @@
+bright-acre/
+├── app/
+│   ├── page.tsx               (Home)
+│   ├── submit-land/
+│   │   └── page.tsx
+│   ├── faq-landowners/
+│   │   └── page.tsx
+│   ├── articles/
+│   │   └── page.tsx
+│   ├── developers/
+│   │   └── page.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── layout.tsx
+│   └── globals.css
+├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── LandForm.tsx
+├── public/
+│   └── images/ (your own royalty-free images)
+├── package.json
+└── next.config.js
