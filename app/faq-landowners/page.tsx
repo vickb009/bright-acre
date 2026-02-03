@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion"; // <-- add framer-motion for animation
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
   question: string;
   answer: string;
-  image?: string;
 }
 
-// All FAQ sections and rephrased answers
+// Reorganized FAQ sections
 const faqSections: { title: string; faqs: FAQItem[] }[] = [
   {
     title: "Leasing Process and General Questions",
@@ -18,8 +17,7 @@ const faqSections: { title: string; faqs: FAQItem[] }[] = [
       {
         question: "What is the overall process for leasing my land to a solar developer?",
         answer:
-          "Every solar project follows a few key steps: legal checks on your land, site studies including technical and environmental evaluations, construction, and then operations where your land generates long-term income. We handle all the heavy lifting for you.",
-        image: "/images/Faq/landowner-faq.jpg"
+          "Every solar project follows a few key steps: legal checks on your land, site studies including technical and environmental evaluations, construction, and then operations where your land generates long-term income. We handle all the heavy lifting for you."
       },
       {
         question: "How long does it take to build a solar farm?",
@@ -113,14 +111,45 @@ export default function FAQPage() {
   };
 
   return (
-    <div style={{ padding: "40px", maxWidth: "900px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "32px", fontWeight: 700, color: "var(--primary)", marginBottom: "30px" }}>
+    <main style={{ padding: "40px", maxWidth: "900px", margin: "0 auto" }}>
+      {/* Centered top image for FAQ page */}
+      <div style={{ textAlign: "center", marginBottom: "30px" }}>
+        <Image
+          src="/images/Faq/landowner-faq.jpg"
+          alt="Landowner FAQ"
+          width={500}
+          height={300}
+          style={{
+            width: "100%",
+            maxWidth: "500px",
+            height: "auto",
+            objectFit: "cover",
+            borderRadius: "8px"
+          }}
+        />
+      </div>
+
+      <h1
+        style={{
+          fontSize: "32px",
+          fontWeight: 700,
+          color: "var(--primary)",
+          marginBottom: "30px"
+        }}
+      >
         Frequently Asked Questions
       </h1>
 
       {faqSections.map((section, sIndex) => (
         <div key={sIndex} style={{ marginBottom: "30px" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: 600, color: "var(--secondary)", marginBottom: "15px" }}>
+          <h2
+            style={{
+              fontSize: "24px",
+              fontWeight: 600,
+              color: "var(--secondary)",
+              marginBottom: "15px"
+            }}
+          >
             {section.title}
           </h2>
 
@@ -128,13 +157,16 @@ export default function FAQPage() {
             const globalIndex = sIndex * 100 + index;
 
             return (
-              <div key={globalIndex} style={{
-                border: "1px solid #ddd",
-                borderRadius: "8px",
-                marginBottom: "10px",
-                overflow: "hidden",
-                boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
-              }}>
+              <div
+                key={globalIndex}
+                style={{
+                  border: "1px solid #ddd",
+                  borderRadius: "8px",
+                  marginBottom: "10px",
+                  overflow: "hidden",
+                  boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
+                }}
+              >
                 {/* Question row */}
                 <div
                   onClick={() => toggleFAQ(globalIndex)}
@@ -182,21 +214,6 @@ export default function FAQPage() {
                       }}
                     >
                       <p>{faq.answer}</p>
-                      {faq.image && (
-                        <Image
-                          src={faq.image}
-                          alt={faq.question}
-                          width={800}
-                          height={400}
-                          style={{
-                            width: "100%",
-                            height: "auto",
-                            objectFit: "cover",
-                            borderRadius: "8px",
-                            marginTop: "10px"
-                          }}
-                        />
-                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -205,6 +222,6 @@ export default function FAQPage() {
           })}
         </div>
       ))}
-    </div>
+    </main>
   );
 }
