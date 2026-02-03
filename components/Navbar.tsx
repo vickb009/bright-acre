@@ -1,47 +1,47 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  return (
-    <nav
-      style={{
-        padding: "16px 32px",
-        background: "#fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        borderBottom: "1px solid #e5e7eb"
-      }}
-    >
-      {/* Logo + Company Name (always visible on every page) */}
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          textDecoration: "none",
-          color: "#000"
-        }}
-      >
-        <Image
-          src="/images/logo/bright-acre-logo.png"
-          alt="Bright Acre"
-          width={42}
-          height={42}
-          priority
-        />
-        <strong style={{ fontSize: "20px" }}>Bright Acre</strong>
-      </Link>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-      {/* Navigation */}
-      <div>
-        <Link href="/">Home</Link>{" | "}
-        <Link href="/submit-land">Submit Your Land</Link>{" | "}
-        <Link href="/faq-landowners">FAQ Landowners</Link>{" | "}
-        <Link href="/articles">Articles</Link>{" | "}
-        <Link href="/developers">Developers</Link>{" | "}
-        <Link href="/contact">Contact</Link>
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  return (
+    <nav>
+      {/* Logo + Company Name */}
+      <div className="logo-name">
+        <Link href="/">
+          <Image
+            src="/images/logo/bright-acre-logo.png"
+            alt="Bright Acre Logo"
+            width={60}
+            height={60}
+            style={{ objectFit: "contain" }}
+          />
+        </Link>
+        <Link href="/">
+          <span>Bright Acre</span>
+        </Link>
+      </div>
+
+      {/* Hamburger Menu Button (mobile only) */}
+      <button className="hamburger" onClick={toggleMenu}>
+        <span className={menuOpen ? "open" : ""}></span>
+        <span className={menuOpen ? "open" : ""}></span>
+        <span className={menuOpen ? "open" : ""}></span>
+      </button>
+
+      {/* Navbar Links */}
+      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link href="/submit-land" onClick={() => setMenuOpen(false)}>Submit Your Land</Link>
+        <Link href="/faq-landowners" onClick={() => setMenuOpen(false)}>FAQ Landowners</Link>
+        <Link href="/articles" onClick={() => setMenuOpen(false)}>Articles</Link>
+        <Link href="/developers" onClick={() => setMenuOpen(false)}>Developers</Link>
+        <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
       </div>
     </nav>
   );

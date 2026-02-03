@@ -5,8 +5,7 @@ export default function SubmitLand() {
     <main style={{ padding: "60px" }}>
       <h1>Submit Your Property</h1>
       <p>
-        Share your land details and our team will review its potential
-        for solar development.
+        Share your land information, and we’ll evaluate its suitability for solar—no obligation.
       </p>
       <LandForm />
     </main>

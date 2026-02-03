@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main style={{ padding: "60px" }}>
-      <Image
-        src="/images/home/home-hero.jpg"
-        alt="Solar land leasing"
-        width={1200}
-        height={600}
-        priority
+    <main>
+      <Image 
+        src="/images/Home/home-hero.jpg" 
+        alt="Home Hero" 
+        width={1200} 
+        height={600} 
+        style={{ width: "100%", height: "auto", objectFit: "cover" }}
       />
 
       <h1>Unlock the Value of Your Land with Bright Acre</h1>
